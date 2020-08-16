@@ -1,8 +1,16 @@
 import React from "react";
 
-const ImageCard = (props) => {
-  const { description, urls } = props.image;
-  return <img alt={description} src={urls.regular} />;
-};
+class ImageCard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.imageRef = React.createRef();
+  }
+
+  render() {
+    const { description, urls } = this.props.image;
+    return <img ref={this.imageRef} alt={description} src={urls.regular} />;
+  }
+}
 
 export default ImageCard;
